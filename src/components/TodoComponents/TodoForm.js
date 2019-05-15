@@ -1,9 +1,9 @@
 import React from 'react';
 
-const TodoForm = ({ value, handleInputChange }) => (
+const TodoForm = ({ value, newTodoHandler }) => (
   <form>
     <input
-      onChange={handleInputChange}
+      onChange={newTodoHandler}
       type="text"
       name="newTodo"
       value={value}

@@ -12,18 +12,18 @@ class App extends React.Component {
     };
   }
 
-  changeInput = ({ target: { name, value } }) =>
+  changeNewTodo = ({ target: { name, value } }) =>
     this.setState({ [name]: value });
 
   render() {
     const {
       state: { todoList, newTodo },
-      changeInput,
+      changeNewTodo,
     } = this;
     return (
       <div>
         <TodoList todoList={todoList} />
-        <TodoForm value={newTodo} handleInputChange={changeInput} />
+        <TodoForm value={newTodo} newTodoHandler={changeNewTodo} />
       </div>
     );
   }
