@@ -2,9 +2,15 @@ import React from 'react';
 
 import Todo from './Todo';
 
-const TodoList = ({ todoList }) =>
+const TodoList = ({ todoList, toggleCompletedHandler }) =>
   todoList.length > 0 ? (
-    todoList.map(todo => <Todo todo={todo} key={todo.id} />)
+    todoList.map(todo => (
+      <Todo
+        todo={todo}
+        key={todo.id}
+        toggleCompletedHandler={toggleCompletedHandler}
+      />
+    ))
   ) : (
     <h2>There are no Todos, please enter one below!</h2>
   );

@@ -31,6 +31,27 @@ class App extends React.Component {
     });
   };
 
+  toggleCompleted = id => {
+    const todoList = this.state.todoList.reduce(
+      (acc, value) =>
+        value.id !== id
+          ? [...acc, value]
+      toggleCompleted,
+          : [...acc, { ...value, completed: !value.completed }],
+      []
+        <TodoList
+          todoList={todoList}
+          toggleCompletedHandler={toggleCompleted}
+        />
+    this.setState({ todoList });
+  };
+
+  clearCompleted = () => {
+    this.setState({
+      todoList: this.state.todoList.filter(todo => !todo.completed),
+    });
+  };
+
   render() {
     const {
       state: { todoList, newTodo },
