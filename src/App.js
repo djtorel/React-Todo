@@ -46,4 +46,5 @@ class App extends React.Component {
   }
 }
 
+// MVP day one completed
 export default App;
