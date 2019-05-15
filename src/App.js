@@ -36,13 +36,9 @@ class App extends React.Component {
       (acc, value) =>
         value.id !== id
           ? [...acc, value]
-      toggleCompleted,
           : [...acc, { ...value, completed: !value.completed }],
       []
-        <TodoList
-          todoList={todoList}
-          toggleCompletedHandler={toggleCompleted}
-        />
+    );
     this.setState({ todoList });
   };
 
@@ -57,14 +53,20 @@ class App extends React.Component {
       state: { todoList, newTodo },
       changeNewTodo,
       changeTodoList,
+      toggleCompleted,
+      clearCompleted,
     } = this;
     return (
       <div>
-        <TodoList todoList={todoList} />
+        <TodoList
+          todoList={todoList}
+          toggleCompletedHandler={toggleCompleted}
+        />
         <TodoForm
           value={newTodo}
           newTodoHandler={changeNewTodo}
           todoListHandler={changeTodoList}
+          clearTodoHandler={clearCompleted}
         />
       </div>
     );
