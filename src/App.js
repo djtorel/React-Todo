@@ -1,5 +1,8 @@
 import React from 'react';
 
+import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
+
 class App extends React.Component {
   constructor() {
     super();
@@ -10,9 +13,11 @@ class App extends React.Component {
   }
 
   render() {
+    const { todoList } = this.state;
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
+        <TodoList todoList={todoList} />
+        <TodoForm />
       </div>
     );
   }
