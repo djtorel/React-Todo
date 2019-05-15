@@ -32,12 +32,8 @@ class App extends React.Component {
   };
 
   toggleCompleted = id => {
-    const todoList = this.state.todoList.reduce(
-      (acc, value) =>
-        value.id !== id
-          ? [...acc, value]
-          : [...acc, { ...value, completed: !value.completed }],
-      []
+    const todoList = this.state.todoList.map(todo =>
+      todo.id === id ? { ...todo, completed: !todo.completed } : { ...todo }
     );
     this.setState({ todoList });
   };
