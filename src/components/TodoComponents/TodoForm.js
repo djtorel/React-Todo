@@ -1,7 +1,7 @@
 import React from 'react';
 
-const TodoForm = ({ value, newTodoHandler }) => (
-  <form>
+const TodoForm = ({ value, newTodoHandler, todoListHandler }) => (
+  <form onSubmit={todoListHandler}>
     <input
       onChange={newTodoHandler}
       type="text"
@@ -9,7 +9,7 @@ const TodoForm = ({ value, newTodoHandler }) => (
       value={value}
       placeholder="Enter a todo"
     />
-    <button>Add Todo</button>
+    <button onClick={todoListHandler}>Add Todo</button>
     <button>Clear Completed</button>
   </form>
 );

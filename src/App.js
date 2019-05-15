@@ -15,15 +15,32 @@ class App extends React.Component {
   changeNewTodo = ({ target: { name, value } }) =>
     this.setState({ [name]: value });
 
+  changeTodoList = e => {
+    e.preventDefault();
+    const { todoList, newTodo } = this.state;
+    if (newTodo.length > 0) {
+      const todo = { task: newTodo, completed: false, id: Date.now() };
+      this.setState({
+        todoList: [...todoList, todo],
+        newTodo: '',
+      });
+    }
+  };
+
   render() {
     const {
       state: { todoList, newTodo },
       changeNewTodo,
+      changeTodoList,
     } = this;
     return (
       <div>
         <TodoList todoList={todoList} />
-        <TodoForm value={newTodo} newTodoHandler={changeNewTodo} />
+        <TodoForm
+          value={newTodo}
+          newTodoHandler={changeNewTodo}
+          todoListHandler={changeTodoList}
+        />
       </div>
     );
   }
