@@ -17,14 +17,18 @@ class App extends React.Component {
 
   changeTodoList = e => {
     e.preventDefault();
-    const { todoList, newTodo } = this.state;
+    let { todoList, newTodo } = this.state;
+    newTodo = newTodo.trim();
     if (newTodo.length > 0) {
       const todo = { task: newTodo, completed: false, id: Date.now() };
       this.setState({
         todoList: [...todoList, todo],
-        newTodo: '',
       });
     }
+
+    this.setState({
+      newTodo: '',
+    });
   };
 
   render() {
@@ -46,5 +50,4 @@ class App extends React.Component {
   }
 }
 
-// MVP day one completed
 export default App;
