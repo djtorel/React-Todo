@@ -1,7 +1,13 @@
 import React from 'react';
+import styled from 'tachyons-components';
 
+import './App.css';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
+
+const MainContainer = styled('div')`
+  mw6 center mt3
+`;
 
 class App extends React.Component {
   constructor() {
@@ -53,18 +59,19 @@ class App extends React.Component {
       clearCompleted,
     } = this;
     return (
-      <div>
-        <TodoList
-          todoList={todoList}
-          toggleCompletedHandler={toggleCompleted}
-        />
+      <MainContainer>
         <TodoForm
           value={newTodo}
           newTodoHandler={changeNewTodo}
           todoListHandler={changeTodoList}
           clearTodoHandler={clearCompleted}
-        />
-      </div>
+        >
+          <TodoList
+            todoList={todoList}
+            toggleCompletedHandler={toggleCompleted}
+          />
+        </TodoForm>
+      </MainContainer>
     );
   }
 }

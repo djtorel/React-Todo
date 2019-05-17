@@ -6460,6 +6460,11 @@ table@^4.0.1:
     slice-ansi "1.0.0"
     string-width "^2.1.1"
 
+tachyons-components@^1.0.1:
+  version "1.0.1"
+  resolved "http://repo.nwie.net/nexus/repository/npm/tachyons-components/-/tachyons-components-1.0.1.tgz#97c0d20e6d022b9b99a8b5d5f68579e2423d77a4"
+  integrity sha512-GiKXffqY01EQ8WWLecofD6uSYss8MbnlXmcishG5M7IbUyctytMVK8SK9jzmsXhwzFpXHOn48C2Ax9Y2r+BKew==
+
 tapable@^0.2.7:
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-0.2.8.tgz#99372a5c999bf2df160afc0d74bed4f47948cd22"
