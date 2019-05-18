@@ -7,7 +7,7 @@ const TodoContainer = styled('div')`
 
 const Title = styled('div')`
   flex justify-center items-center
-  bg-near-black light-gray br3
+  bg-near-black moon-gray br3
   br--top f2 avenir h3
 `;
 
@@ -20,7 +20,7 @@ const InputWrapper = styled('div')`
 `;
 
 const AddTodoInput = styled('input')`
-  input-reset w-100 bg-moon-gray dark-gray
+  input-reset w-100 bg-gray light-gray
   bn f3 pl2 h-100
 `;
 
