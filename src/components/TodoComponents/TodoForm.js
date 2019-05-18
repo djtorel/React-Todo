@@ -15,13 +15,17 @@ const InputContainer = styled('div')`
   flex justify-center h3
 `;
 
-const AddTodoInput = styled('input')`
-  input-reset w-100 bg-mid-gray light-gray
-  bn f2 pl2
+const InputWrapper = styled('div')`
+  pa1 w-100 h3 bg-dark-gray
 `;
 
-const AddTodoButton = styled('button')`\
-  f2 w3 light-gray bg-dark-gray bn
+const AddTodoInput = styled('input')`
+  input-reset w-100 bg-moon-gray dark-gray
+  bn f3 pl2 h-100
+`;
+
+const AddTodoButton = styled('button')`
+  f2 w3 light-gray bg-mid-gray bn
 `;
 
 const TodoListContainer = styled('div')`
@@ -37,15 +41,18 @@ const TodoForm = ({
 }) => (
   <TodoContainer>
     <Title>To-Do App</Title>
+
     <form onSubmit={todoListHandler}>
       <InputContainer>
-        <AddTodoInput
-          onChange={newTodoHandler}
-          type="text"
-          name="newTodo"
-          value={value}
-          placeholder="Enter a todo"
-        />
+        <InputWrapper>
+          <AddTodoInput
+            onChange={newTodoHandler}
+            type="text"
+            name="newTodo"
+            value={value}
+            placeholder="Enter a todo"
+          />
+        </InputWrapper>
         <AddTodoButton onClick={todoListHandler}>+</AddTodoButton>
       </InputContainer>
       <TodoListContainer>{children}</TodoListContainer>
