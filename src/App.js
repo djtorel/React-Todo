@@ -1,14 +1,77 @@
 import React from 'react';
+import styled from 'tachyons-components';
+
+import './App.css';
+import TodoList from './components/TodoComponents/TodoList';
+import TodoForm from './components/TodoComponents/TodoForm';
+
+const MainContainer = styled('div')`
+  mw6 center mt3
+`;
 
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+  constructor() {
+    super();
+    this.state = {
+      todoList: [],
+      newTodo: '',
+    };
+  }
+
+  changeNewTodo = ({ target: { name, value } }) =>
+    this.setState({ [name]: value });
+
+  changeTodoList = e => {
+    e.preventDefault();
+    let { todoList, newTodo } = this.state;
+    newTodo = newTodo.trim();
+    if (newTodo.length > 0) {
+      const todo = { task: newTodo, completed: false, id: Date.now() };
+      this.setState({
+        todoList: [...todoList, todo],
+      });
+    }
+
+    this.setState({
+      newTodo: '',
+    });
+  };
+
+  toggleCompleted = id => {
+    const todoList = this.state.todoList.map(todo =>
+      todo.id === id ? { ...todo, completed: !todo.completed } : { ...todo }
+    );
+    this.setState({ todoList });
+  };
+
+  clearCompleted = () => {
+    this.setState({
+      todoList: this.state.todoList.filter(todo => !todo.completed),
+    });
+  };
+
   render() {
+    const {
+      state: { todoList, newTodo },
+      changeNewTodo,
+      changeTodoList,
+      toggleCompleted,
+      clearCompleted,
+    } = this;
     return (
-      <div>
-        <h2>Welcome to your Todo App!</h2>
-      </div>
+      <MainContainer>
+        <TodoForm
+          value={newTodo}
+          newTodoHandler={changeNewTodo}
+          todoListHandler={changeTodoList}
+          clearTodoHandler={clearCompleted}
+        >
+          <TodoList
+            todoList={todoList}
+            toggleCompletedHandler={toggleCompleted}
+          />
+        </TodoForm>
+      </MainContainer>
     );
   }
 }
